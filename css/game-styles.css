@@ -1,0 +1,333 @@
+/* 
+    Created on : 17/12/2013, 09:00:09 AM
+    Author     : Jose Tovar
+*/
+
+
+/** RESET STYLES **/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {	quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}
+table{border-collapse: collapse;border-spacing: 0;}
+input{width:100px;}
+
+/** GENERAL CSS STYLES **/
+html{
+    /*remove*/background:white;
+    /*remove*/width:100%;
+    /*remove*/height:100%;
+    font-family:verdana;
+}
+body{
+    /*remove*/width:100%;
+    /*remove*/height:100%;
+    /*remove*/background:url(../images/bg.png);
+    /*remove*/background-repeat:repeat no-repeat;
+}
+#game-wrapper{
+    width:958px;
+    height:600px;
+    margin:auto;
+    position:relative;
+    background:white;
+}
+#game-container{
+    width:100%;
+    height:100%;
+    position:relative;
+    background:url(../images/cemento-pattern.jpg);
+    overflow:hidden;
+}
+
+#btn-start-game{
+    width:606px;
+    height:282px;
+    opacity:0;
+    cursor:pointer;
+    position:absolute;
+    left:175px;
+    top:85px;
+    z-index:9999;
+    background:url(../images/btn-salva-negocio.png);
+}
+#ccc-logo{
+    width:118px;
+    height:160px;
+    position:absolute;
+    bottom:20px;
+    right:20px;
+    background:url(../images/logo-ccc.jpg);
+    z-index:9000;
+}
+#bg-white{
+    width:100%;
+    height:100%;
+    background:url(../images/bg-white.png);
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:900;
+}
+#game-over{
+    width:594px;
+    height:257px;
+    position:absolute;
+    left:105px;
+    top:185px;
+    background:url(../images/game-over.png);
+    z-index:9998;
+    display:none;
+    opacity: 0;
+}
+#game-completed{
+    width:593px;
+    height:269px;
+    position:absolute;
+    left:155px;
+    top:169px;
+    background:url(../images/game-completed.png);
+    z-index:9999;
+    display:none;
+}
+#background-sky{
+    width:958px;
+    height:379px;
+    background:url(../images/bg-cielo.jpg);
+    background-position:0px 0px;
+    z-index:1;
+    position:absolute;
+    top:0;
+    left:0;
+}
+#background-bricks{
+    width:958px;
+    height: 226px;
+    background:url(../images/brick-pattern.jpg);
+    /* background-position:0px 0px; */
+    z-index: 2;
+    position:absolute;
+    bottom: 136px;
+    left:0;
+}
+.edificios{
+    position:absolute;
+    left:0;
+    bottom:70px;
+    width:0px;
+    z-index:3;
+}
+.edificio{
+    display:inline-block;
+    position:relative;
+}
+.c1{margin-left:-60px;width:379px;height:498px;background:url(../images/c1.png);}
+.c2{margin-left:-70px;width:340px;height:417px;background:url(../images/c2.png);}
+.c3{margin-left:-60px;width:361px;height:597px;background:url(../images/c3.png);}
+.c4{margin-left:-50px;width:335px;height:590px;background:url(../images/c4.png);}
+.c5{margin-left:-50px;width:391px;height:599px;background:url(../images/c5.png);}
+#character{
+    width:83px;
+    height:126px;
+    background:url(../images/character.png);
+    position:absolute;
+    display:block;
+    z-index:4;
+    bottom:40px;
+    left:-83px;
+    background-position:500px 0px;
+}
+#luces{
+    width:100%;
+    height:282px;
+    overflow:hidden;
+    background:url(../images/background-city.png);
+    background-position:0px 0px;
+    z-index:5;
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+@font-face
+{
+    font-family: pf;
+    src: url(PFDouble.eot);
+}
+@font-face
+{
+    font-family: pf;
+    src: url(PFDouble.ttf);
+}
+#dialog-container{
+    width:75%;
+    height:50%;
+    position:absolute;
+    opacity:0;
+    z-index:9999;
+    left:140px;
+    bottom:170px;
+}
+.dialog-box{
+    position:absolute;
+    padding:15px;
+    display:block;
+    z-index:9999;
+    border: 1px solid white;
+    border-radius:5px;
+    background: white;
+    font-family:pf;
+    font-size:35px;
+    bottom:0;
+    left:0;
+    opacity:0.85;
+}
+.game_dialog, .game_dialog2{
+    text-align:left;
+    font-size:40px;
+    padding:20px 20px;
+    margin:0 20px;
+    outline: 0;
+    border:none;
+    font-family:pf;
+    text-transform:uppercase;
+}
+.game_dialog{
+    position:absolute;
+    top:15px;
+    left:15px;
+    z-index:9000;
+    max-width:353px;
+    max-height:90px;
+    padding-top:25px;
+}
+.game_dialog2{
+    position:relative;
+    display:block;
+    z-index:8000;
+    background:white;
+    color:#7F8083;
+    border-top:5px solid red;
+    border-bottom:5px solid red;
+}
+.dialog{
+    background:url(../images/dialog.png);
+    width:83px;
+    height:44px;
+    position:absolute;
+    left:0;
+    bottom:-44px;
+}
+#restart{
+    width:0px;
+    height:0px;
+    z-index:9999;
+    position:absolute;
+    top:75px;
+    left:75px;
+    cursor:pointer;
+}
+.option{
+    font-family:pf;
+    font-size:25px;
+    float:left;
+    padding:4%;
+    width:25%;
+    max-width: 25%;
+    overflow: hidden;
+    min-height: 70px;
+    position:relative;
+    display: table;
+    vertical-align: middle;
+}
+.option p{
+    display: table-cell;
+    vertical-align:middle;
+    text-align:center;
+    color:#4E6DB2;
+    cursor:pointer;
+    /* position: relative; */
+}
+.option p:hover{
+    color:#4E6DB2;
+    font-size:25px;
+    text-shadow:
+    -3px -3px 0 #FBF1A5,
+    3px -3px 0 #FBF1A5,
+    -3px 3px 0 #FBF1A5,
+    3px 3px 0 #FBF1A5;
+}
+.pregunta{
+    overflow:hidden;
+    border-top:5px solid red;
+    border-bottom:5px solid red;
+    padding:20px;
+}
+.ok, .wrong{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-51px;
+    margin-left:-51px;
+    opacity:0;
+    display:none;
+    width:102px;
+    height:102px;
+}
+.ok{
+    background:url(../images/ok.png);
+}
+.wrong{
+    background:url(../images/wrong.png);        
+}
+.text-game{
+    position:absolute;
+    z-index:1;
+    font-family:pf;
+    opacity:0.1;
+    bottom:1px;
+    left:1px;
+}
+#ver_mas{
+    position:absolute;
+    padding:15px;
+    display:block;
+    z-index:9999;
+    border: 1px solid white;
+    border-radius:5px;
+    background: white;
+    font-family:pf;
+    font-size:35px;
+    bottom:66px;
+    left:391px;
+    opacity:0.85;
+}
+#ver_mas a{
+    color:#4E6DB2;
+    text-shadow:
+    -3px -3px 0 #FBF1A5,
+    3px -3px 0 #FBF1A5,
+    -3px 3px 0 #FBF1A5,
+    3px 3px 0 #FBF1A5;
+    text-decoration:none;
+}
